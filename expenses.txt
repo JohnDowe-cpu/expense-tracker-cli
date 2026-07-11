@@ -22,3 +22,21 @@ Category: Coffee
 Amount: $5.75
 Notes: TEST
 --------------------
+Expense Log
+Date: 
+Category: 
+Amount: $1.0
+Notes: 1
+--------------------
+Expense Log
+Date: 1111-11-11
+Category: Gas
+Amount: $50.0
+Notes: TEST
+--------------------
+Expense Log
+Date: 1111-11-11
+Category: Rent
+Amount: $10.0
+Notes: TEST
+--------------------

@@ -21,9 +21,18 @@ def get_expense_amount():
         except ValueError:
             print("Please enter a valid number.")
 
+def get_required_text(prompt):
+    while True:
+        text = input(prompt).strip()
+
+        if text:
+            return text
+        else:
+            print("This field cannot be blank.")
+
 def add_expense():
-    expense_date = input("What is the expense date? (YYYY-MM-DD): ").strip()
-    category = input("What is the category of expense? (Rent/Hygiene/etc.): ").strip()
+    expense_date = get_required_text("What is the expense date? (YYYY-MM-DD): ")
+    category = get_required_text("What is the category of expense? (Rent/Hygiene/etc.): ")
     amount = get_expense_amount()
     notes = input("Notes: ").strip()
 
