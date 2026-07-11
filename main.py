@@ -46,7 +46,7 @@ def add_expense():
     print("\nExpense Added")
     print(f"Date: {expense['date']}")
     print(f"Category: {expense['category']}")
-    print(f"Amount: ${expense['amount']}")
+    print(f"Amount: ${expense['amount']:.2f}")
     print(f"Notes: {expense['notes']}")
 
     return expense
@@ -56,7 +56,7 @@ def save_expense(expense):
         file.write("Expense Log\n")
         file.write(f"Date: {expense['date']}\n")
         file.write(f"Category: {expense['category']}\n")
-        file.write(f"Amount: ${expense['amount']}\n")
+        file.write(f"Amount: ${expense['amount']:.2f}\n")
         file.write(f"Notes: {expense['notes']}\n")
         file.write("--------------------\n")
 

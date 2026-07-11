@@ -40,3 +40,9 @@ Category: Rent
 Amount: $10.0
 Notes: TEST
 --------------------
+Expense Log
+Date: 1111-11-11
+Category: Hygiene
+Amount: $537.32
+Notes: TEST
+--------------------
