@@ -42,13 +42,25 @@ def add_expense():
 
     return expense
 
+def save_expense(expense):
+    with open("expenses.txt", "a") as file:
+        file.write("Expense Log\n")
+        file.write(f"Date: {expense['date']}\n")
+        file.write(f"Category: {expense['category']}\n")
+        file.write(f"Amount: ${expense['amount']}\n")
+        file.write(f"Notes: {expense['notes']}\n")
+        file.write("--------------------\n")
+
+
 def main():
     while True:
         show_menu()
         choice = get_menu_choice()
 
         if choice == "1":
-            add_expense()
+            expense = add_expense()
+            save_expense(expense)
+            print("Expense saved to expenses.txt")
         elif choice == "2":
             print("View expenses feature coming soon.")
         elif choice == "3":

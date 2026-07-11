@@ -1,0 +1,6 @@
+Expense Log
+Date: 1111-11-11
+Category: Rent
+Amount: $1000.0
+Notes: TEST
+--------------------
