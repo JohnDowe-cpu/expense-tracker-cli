@@ -10,13 +10,34 @@ def get_menu_choice():
     choice = input("Please choose a menu option: ").strip()
     return choice
 
+def add_expense():
+    expense_date = input("What is the expense date? (YYYY-MM-DD): ").strip()
+    category = input("What is the category of expense? (Rent/Hygiene/etc.): ").strip()
+    amount = float(input("What is the expense amount?: "))
+    notes = input("Notes: ").strip()
+
+    expense = {
+        "date": expense_date,
+        "category": category,
+        "amount": amount,
+        "notes": notes
+    }
+    
+    print("\nExpense Added")
+    print(f"Date: {expense['date']}")
+    print(f"Category: {expense['category']}")
+    print(f"Amount: ${expense['amount']}")
+    print(f"Notes: {expense['notes']}")
+
+    return expense
+
 def main():
     while True:
         show_menu()
         choice = get_menu_choice()
 
         if choice == "1":
-            print("Add expense feature coming soon.")
+            add_expense()
         elif choice == "2":
             print("View expenses feature coming soon.")
         elif choice == "3":
