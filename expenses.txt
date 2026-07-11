@@ -1,48 +1,18 @@
 Expense Log
-Date: 1111-11-11
-Category: Rent
-Amount: $1000.0
-Notes: TEST
---------------------
-Expense Log
-Date: 1111-11-11
+Date: 2026-07-21
 Category: Groceries
-Amount: $24.5
-Notes: TEST
+Amount: $24.50
+Notes: Walmart run
 --------------------
 Expense Log
-Date: 1111-11-11
+Date: 2026-07-22
 Category: Gas
-Amount: $40.0
-Notes: TEST
+Amount: $40.00
+Notes: Filled up the truck
 --------------------
 Expense Log
-Date: 1111-11-11
-Category: Coffee
-Amount: $5.75
-Notes: TEST
---------------------
-Expense Log
-Date: 
-Category: 
-Amount: $1.0
-Notes: 1
---------------------
-Expense Log
-Date: 1111-11-11
-Category: Gas
-Amount: $50.0
-Notes: TEST
---------------------
-Expense Log
-Date: 1111-11-11
-Category: Rent
-Amount: $10.0
-Notes: TEST
---------------------
-Expense Log
-Date: 1111-11-11
+Date: 2026-07-23
 Category: Hygiene
-Amount: $537.32
-Notes: TEST
+Amount: $12.75
+Notes: Soap and deodorant
 --------------------

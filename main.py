@@ -69,7 +69,7 @@ def view_expenses():
                 print("\nSaved Expenses")
                 print(saved_expenses)
             else:
-                print("No saved expenses yet.")
+                print("No saved expenses found yet.")
     except FileNotFoundError:
         print("No saved expenses found yet.")
 
