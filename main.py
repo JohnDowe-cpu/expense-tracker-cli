@@ -51,6 +51,19 @@ def save_expense(expense):
         file.write(f"Notes: {expense['notes']}\n")
         file.write("--------------------\n")
 
+def view_expenses():
+    try:
+        with open("expenses.txt", "r") as file:
+            saved_expenses = file.read()
+
+            if saved_expenses.strip():
+                print("\nSaved Expenses")
+                print(saved_expenses)
+            else:
+                print("No saved expenses yet.")
+    except FileNotFoundError:
+        print("No saved expenses yet.")
+
 
 def main():
     while True:
@@ -62,7 +75,7 @@ def main():
             save_expense(expense)
             print("Expense saved to expenses.txt")
         elif choice == "2":
-            print("View expenses feature coming soon.")
+            view_expenses()
         elif choice == "3":
             print("Search expenses feature coming soon.")
         elif choice == "4":
