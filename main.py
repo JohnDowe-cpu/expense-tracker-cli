@@ -10,10 +10,21 @@ def get_menu_choice():
     choice = input("Please choose a menu option: ").strip()
     return choice
 
+def get_expense_amount():
+    while True:
+        try:
+            amount = float(input("What is the expense amount?: "))
+            if amount <= 0:
+                print("Please enter an amount above 0.")
+            else:
+                return amount
+        except ValueError:
+            print("Please enter a valid number.")
+
 def add_expense():
     expense_date = input("What is the expense date? (YYYY-MM-DD): ").strip()
     category = input("What is the category of expense? (Rent/Hygiene/etc.): ").strip()
-    amount = float(input("What is the expense amount?: "))
+    amount = get_expense_amount()
     notes = input("Notes: ").strip()
 
     expense = {
