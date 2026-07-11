@@ -62,8 +62,27 @@ def view_expenses():
             else:
                 print("No saved expenses yet.")
     except FileNotFoundError:
-        print("No saved expenses yet.")
+        print("No saved expenses found yet.")
 
+def search_expenses():
+    search_term = input("Enter search term: ").strip()
+
+    if not search_term:
+        print("Please enter something to search.")
+        return
+
+    try:
+        with open("expenses.txt", "r") as file:
+            saved_expenses = file.read()
+
+            if not saved_expenses.strip():
+                print("No saved expenses found yet.")    
+            elif search_term.lower() in saved_expenses.lower():
+                print(f"{search_term} found in expenses.")
+            else:
+                print(f"{search_term} not found.")
+    except FileNotFoundError:
+        print("No saved expenses found yet.")
 
 def main():
     while True:
@@ -77,7 +96,7 @@ def main():
         elif choice == "2":
             view_expenses()
         elif choice == "3":
-            print("Search expenses feature coming soon.")
+            search_expenses()
         elif choice == "4":
             print("View spending summary feature coming soon.")
         elif choice == "5":
