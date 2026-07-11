@@ -84,6 +84,36 @@ def search_expenses():
     except FileNotFoundError:
         print("No saved expenses found yet.")
 
+def count_expenses():
+    try:
+        with open("expenses.txt", "r") as file:
+            content = file.read()
+            return content.count("Expense Log")
+    except FileNotFoundError:
+        return 0
+
+def calculate_total_spent():
+    total = 0
+    
+    try:
+        with open("expenses.txt", "r") as file:
+            for line in file:
+                if line.startswith("Amount: $"):
+                    amount_text = line.replace("Amount: $", "").strip()
+                    total += float(amount_text)
+
+        return total
+    except FileNotFoundError:
+        return 0
+
+def view_spending_summary():
+    total_expenses = count_expenses()
+    total_spent = calculate_total_spent()
+
+    print("\nSpending Summary")
+    print(f"Total expenses logged: {total_expenses}")
+    print(f"Total spent: ${total_spent:.2f}")
+
 def main():
     while True:
         show_menu()
@@ -98,7 +128,7 @@ def main():
         elif choice == "3":
             search_expenses()
         elif choice == "4":
-            print("View spending summary feature coming soon.")
+            view_spending_summary()
         elif choice == "5":
             print("Expense Tracker CLI closed.")
             break

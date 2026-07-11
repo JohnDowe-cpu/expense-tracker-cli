@@ -4,3 +4,21 @@ Category: Rent
 Amount: $1000.0
 Notes: TEST
 --------------------
+Expense Log
+Date: 1111-11-11
+Category: Groceries
+Amount: $24.5
+Notes: TEST
+--------------------
+Expense Log
+Date: 1111-11-11
+Category: Gas
+Amount: $40.0
+Notes: TEST
+--------------------
+Expense Log
+Date: 1111-11-11
+Category: Coffee
+Amount: $5.75
+Notes: TEST
+--------------------
