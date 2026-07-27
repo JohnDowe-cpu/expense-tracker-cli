@@ -1,4 +1,9 @@
-def show_menu():
+EXPENSES_FILE = "expenses.txt"
+
+
+def show_menu() -> None:
+    """Display the main menu options."""
+
     print("\nExpense Tracker CLI")
     print("1. Add expense")
     print("2. View expenses")
@@ -6,11 +11,16 @@ def show_menu():
     print("4. View spending summary")
     print("5. Quit")
 
-def get_menu_choice():
-    choice = input("Please choose a menu option: ").strip()
-    return choice
 
-def get_expense_amount():
+def get_menu_choice() -> str:
+    """Prompt the user to choose a menu option."""
+
+    return input("Please choose a menu option: ").strip()
+
+
+def get_expense_amount() -> float:
+    """Prompt for a valid expense amount."""
+
     while True:
         try:
             amount = float(input("What is the expense amount?: "))
@@ -21,7 +31,10 @@ def get_expense_amount():
         except ValueError:
             print("Please enter a valid number.")
 
-def get_required_text(prompt):
+
+def get_required_text(prompt: str) -> str:
+    """Prompt for required text input."""
+
     while True:
         text = input(prompt).strip()
 
@@ -30,9 +43,14 @@ def get_required_text(prompt):
         else:
             print("This field cannot be blank.")
 
-def add_expense():
+
+def add_expense() -> dict:
+    """Collect expense information from the user."""
+
     expense_date = get_required_text("What is the expense date? (YYYY-MM-DD): ")
-    category = get_required_text("What is the category of expense? (Rent/Hygiene/etc.): ")
+    category = get_required_text(
+        "What is the category of expense? (Rent/Hygiene/etc.): "
+    )
     amount = get_expense_amount()
     notes = input("Notes: ").strip()
 
@@ -40,9 +58,9 @@ def add_expense():
         "date": expense_date,
         "category": category,
         "amount": amount,
-        "notes": notes
+        "notes": notes,
     }
-    
+
     print("\nExpense Added")
     print(f"Date: {expense['date']}")
     print(f"Category: {expense['category']}")
@@ -51,8 +69,11 @@ def add_expense():
 
     return expense
 
-def save_expense(expense):
-    with open("expenses.txt", "a") as file:
+
+def save_expense(expense: dict) -> None:
+    """Save an expense entry to the expenses file."""
+
+    with open(EXPENSES_FILE, "a", encoding="utf-8") as file:
         file.write("Expense Log\n")
         file.write(f"Date: {expense['date']}\n")
         file.write(f"Category: {expense['category']}\n")
@@ -60,9 +81,12 @@ def save_expense(expense):
         file.write(f"Notes: {expense['notes']}\n")
         file.write("--------------------\n")
 
-def view_expenses():
+
+def view_expenses() -> None:
+    """Display all saved expense entries."""
+
     try:
-        with open("expenses.txt", "r") as file:
+        with open(EXPENSES_FILE, "r", encoding="utf-8") as file:
             saved_expenses = file.read()
 
             if saved_expenses.strip():
@@ -73,7 +97,10 @@ def view_expenses():
     except FileNotFoundError:
         print("No saved expenses found yet.")
 
-def search_expenses():
+
+def search_expenses() -> None:
+    """Search saved expense entries."""
+
     search_term = input("Enter search term: ").strip()
 
     if not search_term:
@@ -81,11 +108,11 @@ def search_expenses():
         return
 
     try:
-        with open("expenses.txt", "r") as file:
+        with open(EXPENSES_FILE, "r", encoding="utf-8") as file:
             saved_expenses = file.read()
 
             if not saved_expenses.strip():
-                print("No saved expenses found yet.")    
+                print("No saved expenses found yet.")
             elif search_term.lower() in saved_expenses.lower():
                 print(f"{search_term} found in expenses.")
             else:
@@ -93,19 +120,25 @@ def search_expenses():
     except FileNotFoundError:
         print("No saved expenses found yet.")
 
-def count_expenses():
+
+def count_expenses() -> int:
+    """Count the total number of saved expenses."""
+
     try:
-        with open("expenses.txt", "r") as file:
+        with open(EXPENSES_FILE, "r", encoding="utf-8") as file:
             content = file.read()
             return content.count("Expense Log")
     except FileNotFoundError:
         return 0
 
-def calculate_total_spent():
-    total = 0
-    
+
+def calculate_total_spent() -> float:
+    """Calculate the total amount of money spent."""
+
+    total = 0.0
+
     try:
-        with open("expenses.txt", "r") as file:
+        with open(EXPENSES_FILE, "r", encoding="utf-8") as file:
             for line in file:
                 if line.startswith("Amount: $"):
                     amount_text = line.replace("Amount: $", "").strip()
@@ -115,7 +148,10 @@ def calculate_total_spent():
     except FileNotFoundError:
         return 0
 
-def view_spending_summary():
+
+def view_spending_summary() -> None:
+    """Display a summary of saved expenses."""
+
     total_expenses = count_expenses()
     total_spent = calculate_total_spent()
 
@@ -123,7 +159,10 @@ def view_spending_summary():
     print(f"Total expenses logged: {total_expenses}")
     print(f"Total spent: ${total_spent:.2f}")
 
-def main():
+
+def main() -> None:
+    """Run the Expense Tracker CLI application."""
+
     while True:
         show_menu()
         choice = get_menu_choice()
@@ -131,7 +170,7 @@ def main():
         if choice == "1":
             expense = add_expense()
             save_expense(expense)
-            print("Expense saved to expenses.txt")
+            print(f"Expense saved to {EXPENSES_FILE}")
         elif choice == "2":
             view_expenses()
         elif choice == "3":
@@ -144,6 +183,6 @@ def main():
         else:
             print("Invalid choice. Please choose 1-5.")
 
+
 if __name__ == "__main__":
     main()
-

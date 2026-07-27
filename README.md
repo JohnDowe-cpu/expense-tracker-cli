@@ -1,6 +1,6 @@
 # Expense Tracker CLI
 
-Expense Tracker CLI is a Python command-line application for tracking personal expenses, saving them to a file, searching saved expenses, and viewing a basic spending summary.
+Expense Tracker CLI is a Python command-line application for tracking personal expenses, saving them to a text file, searching saved expenses, and viewing a basic spending summary.
 
 ## Features
 
@@ -23,11 +23,18 @@ Expense Tracker CLI is a Python command-line application for tracking personal e
 - Loops
 - File handling
 - Input validation
-- Error handling
+- Exception handling
 - String methods
-- Git and GitHub
+- Type hints
+- Docstrings
+- Constants
+- UTF-8 file encoding
+- Git
+- GitHub
 
 ## How to Run
+
+Clone the repository or download the project files, then run:
 
 ```bash
 python3 main.py
@@ -64,7 +71,7 @@ Notes: Walmart run
 
 ## What I Learned
 
-This project helped me practice building a Python command-line application with reusable functions, persistent file storage, input validation, error handling, search functionality, and basic data parsing for calculations.
+This project helped me practice building a larger Python command-line application using reusable helper functions, persistent file storage, exception handling, input validation, string parsing, constants, type hints, and docstrings. It also strengthened my understanding of reading saved data from files and performing calculations to generate useful summaries.
 
 ## Version History
 
@@ -77,7 +84,11 @@ This project helped me practice building a Python command-line application with 
 - v0.7: Added spending summary
 - v0.8: Added required field validation
 - v0.9: Formatted expense amounts
-- v1.0: Finalized first release with documentation and cleanup
+- v1.0: Finalized first release
+- v1.1: Added type hints throughout the project
+- v1.2: Replaced hard-coded filenames with constants
+- v1.3: Added UTF-8 encoding to file operations
+- v1.4: Added function docstrings and completed code cleanup
 
 ## Future Improvements
 
